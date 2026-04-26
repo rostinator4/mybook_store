@@ -1,0 +1,57 @@
+/* 1. Reset and Body */
+body {
+  background-color: #1c1c1c; 
+  margin: 0;
+}
+
+/* 2. Header Layout */
+.header {
+  width: 100%;
+  height: 85px;
+  background-color: #f4f1ea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #dcd7cc; 
+}
+
+.nav-center {
+  display: flex;
+  gap: 5rem; /* This creates the wide spacing in the middle */
+}
+
+/* 3. Navigation Links (Combined into one block) */
+.nav-link {
+  text-decoration: none; /* Removes the blue underline */
+  background: transparent;
+  border: none;
+  color: #463f3a; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  /* This is the high-end zoom transition */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-link svg {
+  font-size: 2.2rem; /* Made slightly bigger for impact */
+}
+
+.nav-link span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* 4. Hover Effect */
+.nav-link:hover {
+  transform: scale(1.15);
+  color: #a67c52; /* Leather Gold */
+}
