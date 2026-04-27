@@ -1,14 +1,8 @@
-/* 1. Reset and Body */
-body {
-  background-color: #1c1c1c; 
-  margin: 0;
-}
-
-/* 2. Header Layout */
 .header {
   width: 100%;
-  height: 85px;
-  background-color: #f4f1ea;
+  height: 90px;
+  /* Switched to Parchment White for high contrast against your dark background */
+  background-color: #f4f1ea; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,42 +10,51 @@ body {
   top: 0;
   left: 0;
   z-index: 1000;
-  border-bottom: 1px solid #dcd7cc; 
+  border-bottom: 1px solid #dcd7cc;
 }
 
 .nav-center {
   display: flex;
-  gap: 5rem; /* This creates the wide spacing in the middle */
+  align-items: center;
+  /* Balanced gap to keep the 'Home' button centered */
+  gap: 6rem; 
 }
 
-/* 3. Navigation Links (Combined into one block) */
 .nav-link {
-  text-decoration: none; /* Removes the blue underline */
-  background: transparent;
-  border: none;
-  color: #463f3a; 
+  text-decoration: none;
+  /* Dark Charcoal for text/icons against the light header */
+  color: #2d2a26; 
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  /* This is the high-end zoom transition */
+  gap: 8px;
+  width: 100px; /* Fixed width ensures the 'middle' is mathematically centered */
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .nav-link svg {
-  font-size: 2.2rem; /* Made slightly bigger for impact */
+  font-size: 2rem;
 }
 
 .nav-link span {
-  font-size: 0.8rem;
-  font-weight: 500;
+  font-size: 0.7rem;
+  font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
-/* 4. Hover Effect */
+/* Hover Zoom + Antique Gold color change */
 .nav-link:hover {
-  transform: scale(1.15);
-  color: #a67c52; /* Leather Gold */
+  transform: scale(1.2);
+  color: #a67c52; 
+}
+
+/* Ensure the body doesn't hide content behind the new header */
+body {
+  background-color: #1c1c1c;
+  margin: 0;
+}
+
+main {
+  padding-top: 130px; /* Moves the form down below the header */
 }
