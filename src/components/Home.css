@@ -1,0 +1,83 @@
+.library-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.library-title {
+    color: #f4f1ea;
+    text-align: center;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-bottom: 3rem;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 3rem;
+    padding-bottom: 5rem;
+}
+
+.book-card {
+    background: transparent;
+    transition: transform 0.4s ease;
+}
+
+.book-cover-wrapper {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    background-color: #24211e;
+    overflow: hidden;
+    border: 1px solid #3d3935;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+}
+
+.book-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(20%); /* Adds a slight "old book" feel */
+}
+
+.book-info {
+    margin-top: 1.2rem;
+    text-align: center;
+}
+
+.book-info h3 {
+    color: #f4f1ea;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.book-info p {
+    color: #a67c52; /* Antique Gold */
+    font-size: 0.8rem;
+    margin: 5px 0 15px 0;
+    font-style: italic;
+}
+
+.read-link {
+    font-size: 0.65rem;
+    color: #bcb8b1;
+    text-decoration: none;
+    border-bottom: 1px solid #463f3a;
+    padding-bottom: 2px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Hover Effects */
+.book-card:hover {
+    transform: translateY(-10px);
+}
+
+.book-card:hover .book-cover-wrapper {
+    border-color: #d4a373;
+    box-shadow: 0 15px 40px rgba(212, 163, 115, 0.2);
+}

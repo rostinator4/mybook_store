@@ -42,7 +42,11 @@ const AddBook = () => {
 
             alert("Book added successfully!");
             // Reset form
-            setTitle(''); setAuthor('');
+            setTitle('');
+            setAuthor('');
+            setImageFile(null);
+            setTextFile(null);
+
         } catch (error) {
             alert(error.message);
         } finally {

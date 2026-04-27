@@ -18,7 +18,7 @@ const Header = () => {
                 </Link>
                 <Link to="/about" className="nav-link">
                     <FaBookOpen />
-                    <span>Library</span>
+                    <span>About</span>
                 </Link>
             </div>
         </div>
