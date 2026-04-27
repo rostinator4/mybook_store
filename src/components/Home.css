@@ -81,3 +81,52 @@
     border-color: #d4a373;
     box-shadow: 0 15px 40px rgba(212, 163, 115, 0.2);
 }
+
+ .book-cover-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Container for both buttons */
+.card-actions {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.3s ease;
+}
+
+.book-card:hover .card-actions {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.action-btn {
+  background-color: #f4f1ea;
+  color: #1c1c1c;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 4px; /* Slight round for a modern look */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+/* Individual Button Colors */
+.action-btn.edit:hover {
+  background-color: #d4a373; /* Gold */
+  color: #f4f1ea;
+}
+
+.action-btn.delete:hover {
+  background-color: #8b0000; /* Deep Crimson for delete */
+  color: #f4f1ea;
+}

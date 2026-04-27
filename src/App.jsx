@@ -5,6 +5,7 @@ import Header from './components/Header'
 import AddBook from './components/AddBook'
 import Home from './components/Home'
 import About from './components/About'
+import EditBook from './components/EditBook'
 import { supabase } from './supabaseClient'
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/add" element={<AddBook />} />
           <Route path="/about" element={<About />} />
+          <Route path="/edit/:id" element={<EditBook />} /> 
         </Routes>
       </main>
     </div>
