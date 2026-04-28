@@ -39,8 +39,6 @@ const AddBook = () => {
                     book_file: txtData.path  // Stores the path to the text file
                 }]);
             if (dbErr) throw dbErr;
-
-            alert("Book added successfully!");
             // Reset form
             setTitle('');
             setAuthor('');

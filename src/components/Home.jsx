@@ -59,7 +59,7 @@ const Home = () => {
             const { error: dbError } = await supabase.from('Library').delete().eq('id', id);
             if (dbError) throw dbError;
 
-            await supabase.storage.from('books').remove([imagePath, bookFile].filter(Boolean));
+            await supabase.storage.from('books').remove([imagePath, filePath].filter(Boolean));
 
             // 3. Update local state to reflect change
             setBooks(books.filter(book => book.id !== id));

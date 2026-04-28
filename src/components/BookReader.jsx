@@ -53,7 +53,7 @@ const BookReader = () => {
                     let currentPage = "";
 
                     words.forEach(word => {
-                        if ((currentPage + word).length > 640) {
+                        if ((currentPage + word).length > 1000) {
                             chunkedPages.push(currentPage.trim());
                             currentPage = word + " ";
                         } else {
