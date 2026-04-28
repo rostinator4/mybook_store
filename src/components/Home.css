@@ -33,6 +33,8 @@
     border: 1px solid #3d3935;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer; 
 }
 
 .book-cover {
@@ -82,10 +84,6 @@
     box-shadow: 0 15px 40px rgba(212, 163, 115, 0.2);
 }
 
- .book-cover-wrapper {
-  position: relative;
-  cursor: pointer;
-}
 
 /* Container for both buttons */
 .card-actions {
@@ -95,9 +93,10 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  opacity: 0;
+  opacity: 0; /* Changed from 1 to 0 so they hide by default */
   transform: translateX(10px);
   transition: all 0.3s ease;
+  z-index: 10; /* CRITICAL: Pulls buttons to the front so the image doesn't hide them */
 }
 
 .book-card:hover .card-actions {
@@ -105,28 +104,174 @@
   transform: translateX(0);
 }
 
-.action-btn {
-  background-color: #f4f1ea;
-  color: #1c1c1c;
-  border: none;
-  width: 35px;
-  height: 35px;
-  border-radius: 4px; /* Slight round for a modern look */
+/* Replace the old .action-btn rules with this */
+.card-action-btn {
+    background-color: #f4f1ea; /* Light parchment background */
+    color: #1c1c1c; /* Dark charcoal icon color */
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+}
+
+.card-action-btn.edit:hover { 
+    background-color: #d4a373; 
+    color: #f4f1ea; 
+}
+
+.card-action-btn.delete:hover { 
+    background-color: #8b0000; 
+    color: #f4f1ea; 
+}
+
+.library-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #3d3935;
+  padding-bottom: 1rem;
+}
+
+.sort-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #a67c52;
+}
+
+.sort-container select {
+  background: #1c1c1c;
+  border: 1px solid #463f3a;
+  color: #f4f1ea;
+  padding: 5px 10px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  outline: none;
+}
+
+.book-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+  padding: 8px 0;
+  border-top: 1px solid #24211e;
+}
+
+.like-btn {
+  background: transparent;
+  border: none;
+  color: #d4a373;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
   transition: all 0.2s ease;
 }
 
-/* Individual Button Colors */
-.action-btn.edit:hover {
-  background-color: #d4a373; /* Gold */
-  color: #f4f1ea;
+.like-btn:hover {
+  color: #8b0000;
+  transform: scale(1.15);
 }
 
-.action-btn.delete:hover {
-  background-color: #8b0000; /* Deep Crimson for delete */
-  color: #f4f1ea;
+.date-added {
+  font-size: 0.65rem;
+  color: #5e574f;
+  letter-spacing: 1px;
 }
+
+.book-card.popular {
+    border: 1px solid #d4a373;
+    box-shadow: 0 0 15px rgba(212, 163, 115, 0.2);
+}
+
+.read-link-btn {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #463f3a;
+    color: #bcb8b1;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0;
+    padding-bottom: 2px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: color 0.3s ease;
+}
+
+.read-link-btn:hover {
+    color: #d4a373; /* Gold on hover */
+    border-bottom-color: #d4a373;
+}
+
+.delete-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(28, 28, 28, 0.95); /* Dark frosted glass */
+    backdrop-filter: blur(4px);
+    box-sizing: border-box;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    z-index: 20; /* Sits above everything else */
+    transform: translateY(0); /* Slides up from bottom */
+    border-top: 1px solid #8b0000;
+}
+
+.delete-overlay span {
+    color: #f4f1ea;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.delete-overlay-actions {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.confirm-btn, .cancel-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.confirm-btn {
+    background-color: #8b0000;
+    color: #fff;
+}
+
+.confirm-btn:hover { background-color: #a30000; }
+
+.cancel-btn {
+    background-color: #463f3a;
+    color: #f4f1ea;
+}
+
+.cancel-btn:hover { background-color: #5e574f; }

@@ -1,0 +1,254 @@
+/* --- MAIN LAYOUT --- */
+.reader-page {
+    min-height: 100vh;
+    background-color: #1c1c1c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 2rem 5rem 2rem;
+}
+
+.manuscript-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.manuscript-header h1 {
+    color: #f4f1ea;
+    font-size: 2rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin: 0 0 8px 0;
+}
+
+.author-name {
+    color: #a67c52; /* Antique Gold */
+    font-size: 1.1rem;
+    font-style: italic;
+    font-family: 'Georgia', serif;
+    margin: 0;
+}
+
+/* --- THE FLIPBOOK (3D EFFECT) --- */
+.flipbook-wrapper {
+    margin-bottom: 4rem;
+    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.8));
+}
+
+.manuscript-book {
+    border-radius: 4px;
+    background-color: #1c1c1c;
+}
+
+/* Base Page Style */
+.page-surface {
+    background-color: #f4f1ea;
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- THE COVER --- */
+.page-cover {
+    background-color: #141414; /* Deep black base */
+    padding: 0 !important; /* Forces the image to the absolute edges */
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 10px 0 20px rgba(0,0,0,0.5); /* Spine shadow for realism */
+}
+
+.full-cover-image {
+    width: 100%;
+    height: 100%;
+    /* This ensures the image fills the 450x600 space 
+       without stretching, cropping from the center instead */
+    object-fit: cover; 
+    display: block;
+}
+
+/* --- THE BACK COVER --- */
+.page-back {
+    background-color: #1c1c1c;
+    border-left: 1px solid #2c2926;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset -10px 0 20px rgba(0,0,0,0.5);
+}
+
+.back-cover-inner p {
+    color: #463f3a;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.75rem;
+}
+
+/* --- INTERIOR PAGES --- */
+.page-margin {
+    padding: 50px 55px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-image: radial-gradient(#dcd7cc 0.5px, transparent 0.5px); 
+    background-size: 5px 5px; /* Subtle paper grain */
+    box-shadow: inset 15px 0 30px -10px rgba(0,0,0,0.1); /* Spine shadow */
+    overflow: hidden; 
+    box-sizing: border-box;
+}
+
+.text-content {
+    color: #2c2926;
+    font-family: 'Georgia', serif;
+font-size: 0.85rem; 
+    line-height: 1.5;
+    text-align: justify;
+    flex-grow: 1;
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
+}
+
+.page-number {
+    text-align: center;
+    font-size: 0.7rem;
+    color: #a67c52;
+    letter-spacing: 2px;
+    margin-top: 20px;
+}
+
+/* --- ACTIONS & COMMENTS SECTION --- */
+.reader-bottom-section {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+}
+
+.action-bar {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.action-btn {
+    background-color: #2c2926;
+    border: 1px solid #3d3935;
+    color: #bcb8b1;
+    padding: 12px 24px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    border-color: #d4a373;
+    color: #f4f1ea;
+    transform: translateY(-2px);
+}
+
+.action-btn.delete:hover {
+    border-color: #8b0000;
+}
+
+/* --- COMMENTS --- */
+.comments-section {
+    background-color: #24211e;
+    padding: 3rem;
+    border-radius: 4px;
+    border: 1px solid #3d3935;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.comments-section h3 {
+    color: #f4f1ea;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #3d3935;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+.comments-list {
+    margin-bottom: 2.5rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.comment-item {
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+    border-left: 1px solid #a67c52;
+}
+
+.comment-date {
+    display: block;
+    font-size: 0.65rem;
+    color: #8a817c;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+}
+
+.comment-item p {
+    color: #bcb8b1;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.comment-form textarea {
+    width: 100%;
+    background-color: #1c1c1c;
+    border: 1px solid #3d3935;
+    color: #f4f1ea;
+    padding: 1rem;
+    min-height: 120px;
+    font-family: inherit;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.comment-form textarea:focus {
+    border-color: #d4a373;
+}
+
+.comment-form button {
+    width: 100%;
+    margin-top: 1rem;
+    background-color: #d4a373;
+    color: #1c1c1c;
+    border: none;
+    padding: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.comment-form button:hover:not(:disabled) {
+    background-color: #a67c52;
+}
+
+.comment-form button:disabled {
+    background-color: #3d3935;
+    color: #8a817c;
+    cursor: not-allowed;
+}
+
+.no-notes {
+    color: #5e574f;
+    text-align: center;
+    font-style: italic;
+}
